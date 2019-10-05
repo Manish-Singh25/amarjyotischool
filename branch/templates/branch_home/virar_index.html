@@ -1,0 +1,223 @@
+{% extends 'branch_base.html' %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+    
+		{% load static %}
+	<head>
+		<title>{% block title %} virar-Amar Jyoti Group of school {% endblock %}</title>
+    </head>
+    <body>
+		
+			{% block course %} 
+			<li><a href="#">course<i class="fa fa-angle-down"></i></a> 
+				<ul class="dropdown">
+						<li><a href="{% url 'virar_course_primary' %}">primary</a></li>
+						<li><a href="{% url 'virar_course_secondary' %}">secondary</a></li>
+				</ul>
+			</li>
+			 
+			{% endblock %}
+	
+
+		{% block aboutus %}<a href="{% url 'virar_aboutUs' %}">About Us</a> {% endblock %}
+
+		{% block body %}
+		
+		<!-- Slider Area -->
+		<section class="home-slider">
+			<div class="slider-active">
+				<!-- Single Slider -->
+				<div class="single-slider overlay" style="background-image:url('{% static 'images/branch/virar/image1.jpg' %}')">
+					 
+				</div>
+				<!--/ End Single Slider -->
+				<!-- Single Slider -->
+				<div class="single-slider overlay" style="background-image:url('{% static 'images/branch/virar/image2.jpg' %}')">
+				 
+				</div>
+				<!--/ End Single Slider -->
+				<!-- Single Slider -->
+				<div class="single-slider overlay" style="background-image:url('{% static 'images/branch/virar/image3.jpg' %}')">
+					 
+				</div>
+				<!--/ End Single Slider -->
+			</div>
+		</section>
+		<!--/ End Slider Area -->
+		
+		<!-- Features -->
+		<section class="our-features section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 wow zoomIn">
+						<div class="section-title">
+							<h2>We Provide <span>Educational</span> Solutions</h2>
+							<h3><span>Vision</span></h3>
+							<p>Our vision at Amar Jyoti Vidy Mandir is to empower our students to acquire quality education, skills, knowledge, values, etiquettes, culture that will help build a better future for them. We at Amar Jyoti strive to provide better learning's to our students. Our goal is to empower our students to portray themselves with their uniqueness in their own specialised fields.</p>
+							<h3><span>Mission</span></h3>
+							<p>Our mission is to provide a high-quality, comprehensive, and meaningful education for all students. Our mission is to grow further by nurturing our students with values, culture, knowledge and skills with which they can be more productive and use their knowledge and skills to lead a successful life.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Features -->	
+		
+		<!-- Call To Action -->
+		<section class="cta" data-stellar-background-ratio="0.5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 offset-lg-6 col-12">
+						<div class="cta-inner overlay">
+							<div class="text-content">
+								<h2>Motivation</h2>
+								<p>To be successful, you have to use each day as an opportunity to improve, to be better, to get a little bit closer to your goals. It might sound like a lot of work—and with a busy schedule, next to impossible. But the best part is, the more you accomplish, the more you’ll want to do, the higher you’ll want to reach. So as long as you have the hunger for success, you will always have the power within you to achieve it.</p>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Call To Action -->
+		
+		<!-- Management -->
+		<section class="team section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 wow zoomIn">
+							<div class="section-title">
+								<h2>Our <span>  Principal</span></h2>
+							
+							</div>
+						</div>
+					</div>
+					<div class="row">
+							{% if managements %}
+							{% for i in managements %}
+						<div class="col-lg-3 col-md-6 col-12 wow fadeIn" data-wow-delay="0.4s">
+							<!-- Single Team -->
+							<div class="single-team">
+								<img src="{{i.image}}" alt="#">
+								<div class="team-hover">
+									<h4>{{ i.name }}<span>{{ i.designation }}</span></h4>
+									<p>{{ i.discription }}</p>
+									
+								</div>
+							</div>
+							<!--/ End Single Team -->
+						</div>
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+			</section>
+			<!--/ End management -->
+		
+	<!-- Testimonials -->
+	<section class="testimonials overlay section" data-stellar-background-ratio="0.5">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="testimonial-slider">
+								{% if achived %}
+								{% for i in achived %}
+							<!-- Single Testimonial -->
+							<div class="single-testimonial">
+								<img src="{{i.image}}" alt="#">
+								<div class="main-content">
+									<h4 class="name">{{ i.name }}</h4>
+									<p><span>Achieved:{{ i.achive }}</span></p>
+									<p>{{ i.discription }}</p>
+								</div>
+							</div>
+							<!--/ End Single Testimonial -->
+							{% endfor %}
+                       		{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Testimonials -->
+		
+		<!-- Events -->
+		<section class="events section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 wow zoomIn">
+						<div class="section-title">
+							<h2>Upcoming <span>Events</span></h2>
+							<p>Schudele for UpComing Event </p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="event-slider">
+								{% if events %}
+								{% for i in events %}
+							<!-- Single Event -->
+							<div class="single-event">
+									<img src="{{i.image}}" alt="#">
+								<div class="event-content">
+									<div class="meta"> 
+										<span><i class="fa fa-calendar"></i>{{ i.date }}</span>
+										<span><i class="fa fa-clock-o"></i>{{ i.time }}</span>
+									</div>
+									<h4><a href="event-single.html">{{ i.name }}</a></h4>
+									<p>{{ i.discription }}</p>
+								</div>
+							</div>
+							<!--/ End Single Event -->	
+							{% endfor %}
+                       		{% endif %}				
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Events -->
+		
+		<!-- Blogs -->
+		<section class="blog section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-title">
+							<h2>Facility <span>Provided</span></h2>
+							<p>Facility Provided</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="blog-slider">
+								{% if facilities %}
+								{% for i in facilities %}
+							<!-- Single Blog -->
+							<div class="single-blog">
+								<div class="blog-head overlay"> 
+									<img src="{{i.image}}" alt="#">
+								</div>
+								<div class="blog-content">
+									<h4 class="blog-title">{{ i.name }}</h4>
+									
+									<p>{{ i.discription }}</p>
+									 
+								</div>
+							</div>
+							<!-- End Single Blog -->
+							{% endfor %}
+							{% endif %}	
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Blogs -->
+		{% endblock %}
+    </body>
+
+<!-- Mirrored from themelamp.com/html/learnedu/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2019 10:45:38 GMT -->
+</html>

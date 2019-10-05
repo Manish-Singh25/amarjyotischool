@@ -1,0 +1,271 @@
+{% extends 'branch_base.html' %}
+<!DOCTYPE html>
+<html lang="en" >
+    {% load static %}
+<head>
+    <title>{% block title %} Bhayander-Amar Jyoti Group of school {% endblock %}</title>
+</head>
+
+<body>
+        {% block course %} 
+		<li><a href="#">course<i class="fa fa-angle-down"></i></a> 
+			<ul class="dropdown">
+                    <li><a href="{% url 'nalasopara_course_kinderGarten' %}">Kinder Garten</a></li>
+                    <li><a href="{% url 'nalasopara_course_primary' %}">primary</a></li>
+                    <li><a href="{% url 'nalasopara_course_secondary' %}">secondary</a></li>
+			</ul>
+		</li>
+		 
+		{% endblock %}
+
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/branch(hindh_english)_style.css' %}?ver=2">
+<script>
+$(document).ready(function(){
+  $('a[href="#Hindi"]').click();
+});
+
+ $('.English').click(function(){
+    $('a[href="#English"]').click();
+})
+
+</script>
+<div class="form_style">
+    
+    <ul class="tab-group">
+      
+      <li class="tab " ><a href="#English" class="English">English</a></li>
+      <li class="tab "><a href="#Hindi" class="Hindi">Hindi</a></li>
+    
+    </ul>
+    
+    <div class="tab-content"  >
+      <div id="English" >   
+            
+<!-- Team -->
+<div class="container">
+        <div class="row">
+            <div class="col-12 wow zoomIn">
+                <div class="section-title">
+                    <h2>B B C english <span>school primary section</span></h2>
+                </div>
+            </div>
+        </div>
+        <h6 align='right'><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; U-Dise-273617160120</p></h6>
+    </div>
+<!-- Slider Area -->
+<section class="home-slider" style="padding: 10px">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image1.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image2.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image3.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+    </div>
+</section>
+<!--/ End Slider Area -->
+
+
+    <!-- Events -->
+        <section class="events section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 wow zoomIn">
+                        <div class="section-title">
+                            <h2>  <span>Activities</span></h2>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="event-slider">
+                            <!-- Single Event -->
+                            {% if obj %}
+                            {% for i in obj %}
+                            
+                            <div class="single-event">
+                                    <img src="{{i.image}}" alt="#">
+                                <div class="event-content">
+                                    <div class="meta"> 
+                                        <span><i class="fa fa-calendar"></i>{{ i.date }}</span>
+                                        <span><i class="fa fa-clock-o"></i>{{ i.time }}</span>
+                                    </div>
+                                    <h4><a href="event-single.html">{{ i.name }}</a></h4>
+                                    <p>{{ i.discription }}</p>
+                                    
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <!--/ End Single Event -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ End Events -->
+
+     <!-- Management -->
+		<section class="team section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Our <span> Staff</span></h2>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            {% if teachers %}
+                            {% for i in teachers %}
+                        <div class="col-lg-3 col-md-6 col-12 wow fadeIn" data-wow-delay="0.4s">
+                            <!-- Single Team -->
+                            <div class="single-team">
+                                <img src="{{i.image}}" alt="#">
+                                <div class="team-hover">
+                                    <h4>{{ i.name }}<span>{{ i.designation }}</span></h4>
+                                    <p>{{ i.discription }}</p>
+                                    
+                                </div>
+                            </div>
+                            <!--/ End Single Team -->
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            <!--/ End management -->	
+    </div>
+    
+     <!-- ************ Hindi ******************  -->
+
+
+    <div id="Hindi" >  
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow zoomIn">
+                    <div class="section-title">
+                        <h2>Smt hirawatidevi hindi <span>Vidyalaya upper primary</span></h2>
+                    </div>
+                </div>
+            </div>
+            <h6 align='right'><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; U-Dise-27361716121</p></h6>
+        </div>
+ <!-- Slider Area -->
+ <section class="home-slider" style="padding: 10px">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image1.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image2.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+        <!-- Single Slider -->
+        <div class="single-slider overlay" style="background-image:url('{% static 'images/branch/nalasopara/pri_sec_image3.jpg' %}?ver=2')">
+            
+        </div>
+        <!--/ End Single Slider -->
+    </div>
+ </section>
+    <!--/ End Slider Area -->
+    
+    
+        <!-- Events -->
+            <section class="events section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>  <span>Activities</span></h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="event-slider">
+                                <!-- Single Event -->
+                                {% if obj1 %}
+                                {% for i in obj1 %}
+                                
+                                <div class="single-event">
+                                        <img src="{{i.image}}" alt="#">
+                                    <div class="event-content">
+                                        <div class="meta"> 
+                                            <span><i class="fa fa-calendar"></i>{{ i.date }}</span>
+                                            <span><i class="fa fa-clock-o"></i>{{ i.time }}</span>
+                                        </div>
+                                        <h4><a href="event-single.html">{{ i.name }}</a></h4>
+                                        <p>{{ i.discription }}</p>
+                                        
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                <!--/ End Single Event -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/ End Events -->
+    
+         <!-- Management -->
+		<section class="team section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Our <span> Staff</span></h2>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            {% if teachers1 %}
+                            {% for i in teachers1 %}
+                        <div class="col-lg-3 col-md-6 col-12 wow fadeIn" data-wow-delay="0.4s">
+                            <!-- Single Team -->
+                            <div class="single-team">
+                                <img src="{{i.image}}" alt="#">
+                                <div class="team-hover">
+                                    <h4>{{ i.name }}<span>{{ i.designation }}</span></h4>
+                                    <p>{{ i.discription }}</p>
+                                    
+                                </div>
+                            </div>
+                            <!--/ End Single Team -->
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            <!--/ End management -->	
+        </div> 
+    </div><!-- Tab contain -->
+    </div><!-- form -->
+    
+    <script  src="{% static 'js/joinUs_script.js' %}"></script>  
+        {% endblock %}
+    </body>
+</html>

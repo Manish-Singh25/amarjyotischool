@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+    
+		{% load static %}
+	<head>
+		
+		
+    </head>
+    <body>
+		
+        {% block body %}
+        
+        <div class="form_style">
+            <link rel="stylesheet" href="{% static 'css/joinUs_style.css' %}">
+            <ul class="tab-group">
+              <li class="tab active"><a href="#signup">Sign Up</a></li>
+              <li class="tab"><a href="#login">Log In</a></li>
+            </ul>
+            
+            <div class="tab-content">
+              <div id="signup">   
+        
+                <h1 class='h1_color'>Sign Up for Free</h1>
+                {% if request.GET.success %}
+                  <p class="text-center" style="color:red; font-size:25px;">User Register Successfully</p>
+                  {% else %}
+                  {% if request.GET.success1 %}
+                  <p class="text-center" style="color:red; font-size:25px;">User Already Exist</p>
+                  {% endif %}
+                  {% endif %}
+                <form action="{% url 'signup' %}" method="post" onSubmit = "return checkPassword(this)">
+                    {% csrf_token %}
+                <div class="top-row">
+                  <div class="field-wrap">
+                    
+                    <input type="text" name='s_first' class='inputblock' required autocomplete="on" placeholder="First Name *" />
+                  </div>
+              
+                  <div class="field-wrap">
+                     
+                    <input type="text" name='s_last' class='inputblock' required autocomplete="on" placeholder="Last Name *"/>
+                  </div>
+                </div>
+      
+                <div class="field-wrap">
+                   
+                  <input type="email" name='s_email' class='inputblock' required autocomplete="on" placeholder="Email Address *"/>
+                </div>
+                
+                <div class="field-wrap">
+                  
+                  <input type="password" name='s_pass' class='inputblock' required autocomplete="on" placeholder=" Set A Password *"/>
+                </div>
+
+                <div class="field-wrap">
+                  
+                        <input type="password" name='s_re_pass' class='inputblock' required autocomplete="on" placeholder=" Re-enter Password *"/>
+                      </div>
+                
+                <button type="submit" class="button_but button_but-block"/>Get Started</button>
+                <script>
+                        function checkPassword(form) { 
+                            password1 = form.s_pass.value; 
+                            password2 = form.s_re_pass.value; 
+                            email=form.s_email.value;
+                            name=form.s_first.value;
+                            surname=form.s_last.value;
+
+                            if(name.length > 30){
+                              alert ("\nFirst Name Length Should be less then 30: Please try again...")
+                              return false; 
+                              }
+
+                            if(surname.length > 30){
+                              alert ("\nLast Name Length Should be less then 30: Please try again...")
+                              return false; 
+                              }
+
+                            if(email.length > 30){
+                              alert ("\nEmail Length Should be less then 30: Please try again...")
+                              return false; 
+                              }
+
+                            if(password1.length > 30){
+                              alert ("\nPassword Length Should be less then 30: Please try again...")
+                              return false; 
+                              }
+                          
+                            if (password1 != password2) { 
+                                alert ("\nPassword did not match: Please try again...") 
+                                return false; 
+                            }
+                            else{  
+                                return true; 
+                            } 
+                        } 
+                </script>
+                </form>
+      
+              </div>
+              
+              <div id="login">   
+                <h1 class='h1_color'>Welcome Back!</h1>
+                {% if request.GET.login %}
+                  <p class="text-center" style="color:red; font-size:25px;">Invalid username or password</p>
+                  {% endif %}
+                <form action="{% url 'authenticate' %}" method="post">
+                    {% csrf_token %}
+                  <div class="field-wrap">
+                   
+                  <input type="email" name='l_email' class='inputblock' required autocomplete="on" placeholder="Email Address *"/>
+                </div>
+                
+                <div class="field-wrap">
+                   
+                  <input type="password" name='l_pass' class='inputblock' required autocomplete="on" placeholder="Password *"/>
+                </div>
+                
+                <button class="button_but button_but-block"/>Log In</button>
+                
+                </form>
+      
+              </div>
+              
+            </div><!-- tab-content -->
+            
+      </div> <!-- /form -->
+      <script  src="{% static 'js/joinUs_script.js' %}"></script> 
+        {% endblock %}
+    </body>
+
+<!-- Mirrored from themelamp.com/html/learnedu/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2019 10:45:38 GMT -->
+</html>

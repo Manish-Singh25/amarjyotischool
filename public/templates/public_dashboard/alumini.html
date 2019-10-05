@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+	{% load static %}
+	 
+
+<head>
+		
+			<!-- css included in page -->
+		
+    </head>
+    <body>
+	
+		<!-- Navigation bar included -->
+		{% block body %}	
+				<!-- Team -->
+			<section class="team section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 wow zoomIn">
+							<div class="section-title">
+								<h2>Our Awesome <span>Alumni</span></h2>
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+							{% if detail %}
+							{% for i in detail %}
+						<div class="col-lg-3 col-md-6 col-12 wow fadeIn" data-wow-delay="0.4s">
+							<!-- Single Team -->
+							<div class="single-team">
+								<img src="{{i.image}}" alt="#">
+								<div class="team-hover">
+									<h4>{{ i.name }}<span>Passout year:{{ i.pass_out }}</span><span>Working As: {{ i.job }}</span></h4>
+									<p>{{ i.discription }}</p>
+								</div>
+							</div>
+							<!--/ End Single Team -->
+						</div>
+						{% endfor %}
+                        {% endif %}
+					</div>
+				</div>
+			</section>
+			<!--/ End Team -->
+		{% endblock %}
+		
+    </body>
+
+    <!-- Mirrored from themelamp.com/html/learnedu/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2019 10:45:38 GMT -->
+    </html>

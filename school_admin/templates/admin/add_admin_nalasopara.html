@@ -1,0 +1,253 @@
+{% extends 'admin_base.html' %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+    
+		{% load static %}
+	<head>
+		
+		
+    </head>
+    <body>
+        {% block body %}
+        
+             
+                  <!-- Add Achivers-->
+            <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Add<span> Achivers Details</span></h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                        <div class="col-12 wow zoomIn">
+                        
+
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'save_admin_nalasopara' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" maxlength="50" class="form-control" name="achive_name" required autocomplete="on" aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Achive</label>
+                            <input type="text" maxlength="50" class="form-control" name="achive_achive" required autocomplete="on" aria-describedby="emailHelp" placeholder="Achive">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Discription</label>
+                                <textarea class="form-control" name="achive_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
+                                <input type="file" accept="image/*" class="form-control" name="achive_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                        </div>
+                        <input type="hidden" name="add" value="achive">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>          
+
+                </div>
+            </div>
+            </div>
+             <!-- Add events-->
+             <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Add<span> Event Details</span></h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                        <div class="col-12 wow zoomIn">
+                        
+
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'save_admin_nalasopara' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <select class="form-control" name="nalasopara_branch">
+                                <option class="form-control" value="nalasopara_event">Nalasopara Home</option>
+                                <option class="form-control" value="nalasopara_kinderGarten">Nalasopara Kinder Garten</option>
+                                
+                                <option class="form-control" value="nalasopara_primary_english">Nalasopara Primary (English)</option>
+                                <option class="form-control" value="nalasopara_primary_hindi">Nalasopara Primary (Hindi)</option>
+
+                                <option class="form-control" value="nalasopara_secondary_hindi">Nalasopara Secondary (Hindi)</option>
+                               
+                               
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" maxlength="50" class="form-control" name="event_name" required autocomplete="on" aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Date</label>
+                            <input type="text" maxlength="20" class="form-control" name="event_date" required autocomplete="on" aria-describedby="emailHelp" placeholder="Date">
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Time</label>
+                                <input type="text" maxlength="15" class="form-control" name="event_time" required autocomplete="on" aria-describedby="emailHelp" placeholder="Time">
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Discription</label>
+                                <textarea class="form-control" name="event_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
+                                <input type="file" accept="image/*" class="form-control" name="event_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                        </div>
+                        <input type="hidden" name="add" value="event">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>          
+
+                </div>
+            </div>
+            </div>
+
+             <!-- Add facility-->
+             <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Add<span> Facility Details</span></h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                        <div class="col-12 wow zoomIn">
+                        
+
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'save_admin_nalasopara' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" maxlength="50" class="form-control" name="facility_name" required autocomplete="on" aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+    
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Discription</label>
+                                <textarea class="form-control" name="facility_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
+                                <input type="file" accept="image/*" class="form-control" name="facility_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                        </div>
+                        <input type="hidden" name="add" value="facility">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>          
+
+                </div>
+            </div>
+            </div>
+
+            <!-- Add teacher & managements-->
+            <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>Add<span> Management & Teachers Details</span></h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                        <div class="col-12 wow zoomIn">
+                        
+
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'save_admin_nalasopara' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <select class="form-control" name="nalasopara_teacher">
+                                <option class="form-control" value="nalasopara_management">Nalasopara Principal</option>
+                                <option class="form-control" value="nalasopara_kinderGarten_english_teacher">Nalasopara Kinder Garten Teachers </option>
+                                 
+                                <option class="form-control" value="nalasopara_primary_english_teacher">Nalasopara Primary Teachers (English)</option>
+                                <option class="form-control" value="nalasopara_primary_hindi_teacher">Nalasopara Primary Teachers (Hindi)</option>
+
+                                <option class="form-control" value="nalasopara_secondary_hindi_teacher">Nalasopara Secondary Teachers (Hindi)</option>
+                                 
+                               
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" maxlength="50" class="form-control" name="teacher_name" required autocomplete="on" aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Designation</label>
+                            <input type="text" maxlength="50" class="form-control" name="teacher_designation" required autocomplete="on" aria-describedby="emailHelp" placeholder="Designation">
+                        </div>
+                        
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Discription</label>
+                                <textarea class="form-control" name="teacher_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="Discription" rows='3'></textarea>
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
+                                <input type="file" accept="image/*" class="form-control" name="teacher_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                        </div>
+                        <input type="hidden" name="add" value="teachers">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>          
+
+                </div>
+            </div>
+            </div>
+
+            <div class="container">
+                    <div class="row">
+                        <div class="col-12 wow zoomIn">
+                            <div class="section-title">
+                                <h2>   </h2>
+                                 
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <script>
+
+                var _validFileExtensions = [".jpg", ".jpeg", ".png"];    
+                function ValidateSingleInput(oInput) {
+                    if (oInput.type == "file") {
+                        var sFileName = oInput.value;
+                         if (sFileName.length > 0) {
+                            var blnValid = false;
+                            for (var j = 0; j < _validFileExtensions.length; j++) {
+                                var sCurExtension = _validFileExtensions[j];
+                                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                    blnValid = true;
+                                    break;
+                                }
+                            }
+                             
+                            if (!blnValid) {
+                                alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                                oInput.value = "";
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+                
+                </script>
+            {% endblock %}
+    </body>
+</html>

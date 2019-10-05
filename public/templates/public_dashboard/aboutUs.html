@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en" >
+    {% load static %}
+<head>
+
+</head>
+
+<body>
+{% block body %}
+ <!-- Management -->
+    <section class="team section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow zoomIn">
+                    <div class="section-title">
+                        <h2>Our <span> Management</span></h2>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    {% if managements %}
+                    {% for i in managements %}
+                <div class="col-lg-3 col-md-6 col-12 wow fadeIn" data-wow-delay="0.4s">
+                    <!-- Single Team -->
+                    <div class="single-team">
+                        <img src="{{i.image}}" alt="#">
+                        <div class="team-hover">
+                            <h4>{{ i.name }}<span>{{ i.designation }}</span></h4>
+                            <p>{{ i.discription }}</p>
+                            
+                        </div>
+                    </div>
+                    <!--/ End Single Team -->
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!--/ End management -->
+   
+
+	<!-- Features -->
+    <section class="our-features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow zoomIn">
+                    <div class="section-title">
+                        <h2> <span>About Us</span></h2>
+                        
+                        <p style="text-align:justify">Amar Jyoti Vidya Mandir started its journey in year 1984 by our founder Shri Vaidya B.B.Chaube. We began our journey with vision to provide better education to the young minds of our society. Started with a hindi medium school in Bhayandar west with small strength we now have 2 branches, one in Virar i.e. Adarsh Public High School and another in Nallasopara i.e. BBC English school & Hirawati devi Hindi High School. We have also added Junior College section to our Amar Jyoti Group started in year 2013-2014 group, for the students who wish to pursue in the field of Commerce. We currently have 50+ teaching staff in our Amar Jyoti family who constantly adds value to our schools and drive it towards our goals. Our students have also made our school proud by constantly scoring above distinction percentage in SSC exams every year. Apart from academics our students also excel in sports wherein we hold record of winning Champions trophy 6 times in a row in Sports competition organised by Manthon Samajik Sanstha and Mira Bhayandar Block Congress Committee. Our students have also won 1 gold, 3 silver and 2 bronze for school in sports competition organised by Mahapaur Chashak. We hope to continue our journey with a view to achieve our vision and mission and make our students ready for their future and career.</p>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features -->	
+        {% endblock %}
+    </body>
+</html>

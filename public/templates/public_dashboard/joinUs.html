@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en" >
+    {% load static %}
+<head>
+
+</head>
+
+<body>
+{% block body %}
+  <div class="form_style">
+      <link rel="stylesheet" href="{% static 'css/joinUs_style.css' %}">
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Teachers</a></li>
+        <li class="tab"><a href="#login">Student</a></li>
+      </ul>
+      {% if request.GET.uplode %}
+                  <p class="text-center" style="color:red; font-size:25px;">Request Send</p>
+                  {% endif %}
+      <div class="tab-content">
+        <div id="signup">   
+          <h1 class='h1_color'>Please Enter Your details</h1>
+          
+          <form action="{% url 'teacher_join' %}" method="post">
+            {% csrf_token %}
+            <div class="top-row">
+              <div class="field-wrap">
+                
+                <input class='inputblock' maxlength="30" name="t_first" type="text" required autocomplete="on" placeholder="First Name *" />
+              </div>
+          
+              <div class="field-wrap">
+              
+                <input class='inputblock' maxlength="30" name="t_last" type="text"required autocomplete="on" placeholder="Last Name *"/>
+              </div>
+            </div>
+
+            <div class="field-wrap">
+             
+              <input class='inputblock' name="t_email" maxlength="30" type="email"required autocomplete="on" placeholder="Email Address *"/>
+            </div>
+
+            <div class="field-wrap">
+              
+              <input class='inputblock' name="t_contact" maxlength="10" type="text"required autocomplete="on" placeholder="Contact No *"/>
+            </div>
+            
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="t_qualifications" maxlength="50" type="text"required autocomplete="on" placeholder="Qualifications *"/>
+            </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="t_post" maxlength="30" type="text"required autocomplete="on" placeholder="Post *"/>
+            </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="t_experience" maxlength="15" type="text"required autocomplete="on" placeholder=" Experience *"/>
+            </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="t_lastSchool" maxlength="50" type="text" required autocomplete="on" placeholder="Last School *"/>
+            </div>     
+
+            <button type="submit" class="button_but button_but-block">Submit</button>
+            
+          </form>
+
+        </div>
+        
+        <div id="login">   
+          <h1 class="h1_color">Please enter Student Details</h1>
+          <form action="{% url 'student_join' %} " method="post">
+              {% csrf_token %}
+            <div class="top-row">
+              <div class="field-wrap">
+                 
+                <input class='inputblock' maxlength="30" name="s_first" type="text" required autocomplete="on" placeholder="First Name *" />
+              </div>
+
+              <div class="field-wrap">
+                 
+                <input class='inputblock' maxlength="30" name="s_last" type="text"required autocomplete="on" placeholder="Last Name *"/>
+              </div>
+            </div>
+
+              <div class="field-wrap">
+                 
+                <input class='inputblock' maxlength="30" name="s_father" type="text" required autocomplete="on" placeholder="Father's Name*"/>
+              </div>
+
+              <div class="field-wrap">
+                 
+                <input class='inputblock' maxlength="30" name="s_mother" type="text" required autocomplete="on" placeholder="Mother's Name *"/>
+              </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' maxlength="30" name="s_fatherEmail" type="email"required autocomplete="on" placeholder="Father's Email Address *"/>
+            </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="s_fatherContact" maxlength="10" type="text"required autocomplete="on" placeholder="Father's Contact No *"/>
+            </div>
+
+            <div class="field-wrap">
+              
+              <input class='inputblock' maxlength="30" name="s_motherEmail" type="email"required autocomplete="on" placeholder="Mother's Email Address *"/>
+            </div>
+
+            <div class="field-wrap">
+               
+              <input class='inputblock' name="s_motherContact" maxlength="10" type="text"required autocomplete="on" placeholder="Mother's Contact No *"/>
+            </div>
+            <button type="submit" class="button_but button_but-block">Submit</button>
+
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+    </div> <!-- /form -->
+     
+    <script  src="{% static 'js/joinUs_script.js' %}"></script> 
+
+{% endblock %}
+
+
+</body>
+
+</html>
