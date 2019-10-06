@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from django.conf.urls import url
+
 from django.conf import settings
 from django.conf.urls.static import static
 from public import views
@@ -24,5 +24,5 @@ urlpatterns = [
     path('school/',include('public.urls')),
     path('branch/',include('branch.urls')),
     path('school_admin/',include('school_admin.urls')),
-    url(r'^',views.url_redirect),    
+    path('',views.url_redirect),    
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

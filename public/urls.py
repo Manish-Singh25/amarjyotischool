@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from django.conf.urls import url
+
 from django.conf import settings
 
 
@@ -15,5 +15,5 @@ urlpatterns=[
     path('teacher_join/',views.teachers_join,name="teacher_join"),
     path('signup/',views.signup,name="signup"),
     path('authenticate/',views.authenticate,name="authenticate"),
-    url(r'^',views.url_redirect),
+    path('',views.url_redirect),
 ]

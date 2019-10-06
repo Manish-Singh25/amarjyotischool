@@ -1,5 +1,5 @@
 from django.urls import path
-from django.conf.urls import url
+
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -17,5 +17,5 @@ urlpatterns=[
     path('nalasopara_course_secondary/',views.nalasopara_course_secondary,name="nalasopara_course_secondary"),
     path('virar_course_primary/',views.virar_course_primary,name="virar_course_primary"),
     path('virar_course_secondary/',views.virar_course_secondary,name="virar_course_secondary"),
-    url(r'^',views.branch_url_redirect),
+    path('',views.branch_url_redirect),
 ]

@@ -70,6 +70,7 @@ def save_admin_index(request):
             image=fs.url(filename)
             name_img=image[7:]
             url=str(MEDIA_ROOT)+'/'+str(name_img)
+            
             img=Image.open(url)
             img1=copy.deepcopy(img)
             img.close()

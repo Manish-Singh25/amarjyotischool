@@ -44,8 +44,8 @@
                                 <textarea class="form-control" name="achive_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
                         </div>
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
-                                <input type="file" accept="image/*" class="form-control" name="achive_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported and file name should not contain any special character or blank space. file name should only consist of Number and alphabet )</label>
+                                <input type="file" accept="image/*" id="image1" class="form-control" name="achive_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
                         </div>
                         <input type="hidden" name="add" value="achive">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -103,8 +103,8 @@
                                 <textarea class="form-control" name="event_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
                         </div>
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
-                                <input type="file" accept="image/*" class="form-control" name="event_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported and file name should not contain any special character or blank space. file name should only consist of Number and alphabet )</label>
+                                <input type="file" accept="image/*" id="image2" class="form-control" name="event_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
                         </div>
                         <input type="hidden" name="add" value="event">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -143,8 +143,8 @@
                                 <textarea class="form-control" name="facility_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="discription" rows='3'></textarea>
                         </div>
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
-                                <input type="file" accept="image/*" class="form-control" name="facility_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported and file name should not contain any special character or blank space. file name should only consist of Number and alphabet )</label>
+                                <input type="file" accept="image/*" id="image3" class="form-control" name="facility_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
                         </div>
                         <input type="hidden" name="add" value="facility">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -200,8 +200,8 @@
                                 <textarea class="form-control" name="teacher_discription" required autocomplete="on" aria-describedby="emailHelp" placeholder="Discription" rows='3'></textarea>
                         </div>
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported)</label>
-                                <input type="file" accept="image/*" class="form-control" name="teacher_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
+                                <label for="exampleInputEmail1">Image (Only .jpeg, .jpg and .png format are supported and file name should not contain any special character or blank space. file name should only consist of Number and alphabet )</label>
+                                <input type="file" accept="image/*" id="image4" class="form-control" name="teacher_image" required autocomplete="on" aria-describedby="emailHelp" placeholder="Add Image" onchange="ValidateSingleInput(this);">
                         </div>
                         <input type="hidden" name="add" value="teachers">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -244,7 +244,18 @@
                             }
                         }
                     }
-                    return true;
+                    var fileName = document.getElementById(oInput.id).files[0].name;
+   
+                        if (/^[^\\\/\:\*\?\"\<\>\| -\.~`@#%&^=;]+(\.[^\\\/\:\*\?\"\<\>\| -\.~`@#%&^S=;]+)+$/.test(fileName)) {
+                            
+                            return true;
+                        }
+                        else { 
+                            
+                            alert("This is an invalid filename, please try again!");
+                            oInput.value = "";
+                            return false;
+                        }
                 }
                 
                 </script>

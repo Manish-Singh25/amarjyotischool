@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.conf import settings
-from django.conf.urls import url
+
 urlpatterns=[
     path('admin_index/',views.admin_index,name="admin_index"),
     path('upload_admin_index/',views.uplode_admin_index,name="upload_admin_index"),
@@ -36,5 +36,5 @@ urlpatterns=[
     path('delete_virar/',views.delete_virar,name="delete_virar"),
     path('upload_admin_virar/',views.uplode_admin_virar,name="upload_admin_virar"),
     path('save_admin_virar/',views.save_admin_virar,name="save_admin_virar"),
-    url(r'^',views.admin_url_redirect),
+    path('',views.admin_url_redirect),
 ]
